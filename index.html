@@ -1,4 +1,3 @@
-
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -57,7 +56,15 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s;
+        }
     </style>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -66,33 +73,23 @@
     <main>
         <section id="about">
             <h2>Tentang Saya</h2>
-              <body>
-                    <p>Nama      :ARDIAN SYAH FAJAR RAMADHAN </p>
-                    <p>Usia      :TEBAK SENDIRI </p>
-                    <p>Pekerjaan : Banyak hal yang bisa saya lakukan </p>
-                                <li><dl><p>1. Penjualan Elektronik </p></li></dl> 
-                                <li><p>2. Melayani pesanan rakit komputer</p></li>
-                                <p>3. Melayani pesanan peralatan kantor</p>
-                                <p>4. Melayani jasa Service, Maintenance, Networking</p>             
-                    <p>Hobi      :MEMANCING, NGEGAME </p>
-                    <p>Visi      :Pelajari, Pahami, Praktek</p>
-                    <p>Misi      :Menjadi orang yang cerdas, inovatif, dan berwawasan lingkungan.</p>
-              </body>
+            <p>Nama      : ARDIAN SYAH FAJAR RAMADHAN</p>
+            <p>Usia      : TEBAK SENDIRI</p>
+            <p>Pekerjaan : Banyak hal yang bisa saya lakukan</p>
+            <p>1. Penjualan Elektronik</p>
+            <p>2. Melayani pesanan rakit komputer</p>
+            <p>3. Melayani pesanan peralatan kantor</p>
+            <p>4. Melayani jasa Service, Maintenance, Networking</p>
+            <p>Hobi      : MEMANCING, NGEGAME</p>
+            <p>Visi      : Pelajari, Pahami, Praktek</p>
+            <p>Misi      : Menjadi orang yang cerdas, inovatif, dan berwawasan lingkungan.</p>
             
             <button id="showMore">Tampilkan Lebih Banyak</button>
             <div id="moreInfo" style="display: none;">
-                <p>Seorang individu yang memiliki beragam hobi dan minat yang mencerminkan kecintaan terhadap eksplorasi, teknologi, dan alam. Di waktu luang, kamu menikmati kegiatan memancing, sebuah aktivitas yang memberikan kesempatan untuk bersantai dan merenung di tepi air, sambil merasakan keindahan alam. Selain itu, kamu juga gemar menjelajahi alam, menemukan keajaiban di setiap sudutnya, dan menikmati pengalaman baru yang ditawarkan oleh lingkungan sekitar.
-                    Ketika tidak berada di alam, kamu menyelami dunia game, di mana strategi dan kreativitas berpadu dalam setiap permainan. Hal ini memberikanmu ruang untuk bersantai sekaligus mengasah kemampuan berpikir kritis. 
-                    Minatmu yang kuat dalam bahasa pemrograman menunjukkan semangat untuk memahami logika dan struktur di balik perangkat lunak. Kamu terus belajar dan mengembangkan dirimu dalam bidang yang terus berkembang pesat, siap untuk menciptakan inovasi baru.
-                    Sebagai teknisi networking, kamu memiliki kemampuan untuk mengelola dan memecahkan masalah dalam sistem jaringan. Pencapaian ini menegaskan keahlianmu dalam memahami infrastruktur teknologi yang penting bagi banyak organisasi. Kemampuanmu dalam troubleshooting dan merancang jaringan yang efisien menjadikanmu aset berharga di dunia profesional.
-                    Dengan kombinasi hobi yang menarik, cinta terhadap alam, dan keterampilan teknis yang kuat, kamu siap menghadapi tantangan dan meraih kesuksesan di berbagai bidang. Kamu adalah seseorang yang terus belajar dan berkembang, baik dalam aspek pribadi maupun profesional.
-                </p>
-                <p>    
-                    jika kalian ingin berbagi beberapa informasi, silahkan hubungi email dibawah ini 
-                </p> 
-                <p>kirim email : ardiansyahfajarramadhana@gmail.com
-                   no telepon  : +62=]
-                </p>
+                <p>Seorang individu yang memiliki beragam hobi dan minat yang mencerminkan kecintaan terhadap eksplorasi, teknologi, dan alam...</p>
+                <p>Jika kalian ingin berbagi beberapa informasi, silahkan hubungi email di bawah ini:</p>
+                <p>Kirim email: ardiansyahfajarramadhana@gmail.com</p>
+                <p>No telepon: +62=]</p>
             </div>
         </section>
 
@@ -105,12 +102,20 @@
                 <button type="submit">Kirim Pesan</button>
             </form>
             <p id="responseMessage" style="display: none;"></p>
+
+            <div class="fade-in">
+                <h3>Media Sosial</h3>
+                <a href="https://facebook.com/username" target="_blank">Facebook</a> | 
+                <a href="https://telegram.com/nuulssprit" target="_blank">telegram</a> | 
+                <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>
+            </div>
         </section>
     </main>
     <footer>
         <p>&copy; est 2024, Hak Milik</p>
     </footer>
     <script>
+        emailjs.init("YOUR_USER_ID"); // ardiansyahfajararamadhana@gmail.com
         document.getElementById("showMore").addEventListener("click", function() {
             const moreInfo = document.getElementById("moreInfo");
             if (moreInfo.style.display === "none") {
@@ -124,16 +129,23 @@
 
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
+
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const message = document.getElementById("message").value;
 
-            // Simulasi pengiriman pesan
-            document.getElementById("responseMessage").innerText = `Terima kasih, ${name}! Pesan Anda telah terkirim.`;
-            document.getElementById("responseMessage").style.display = "block";
-
-            // Reset form
-            this.reset();
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                from_name: name,
+                from_email: email,
+                message: message,
+            })
+            .then(function() {
+                document.getElementById("responseMessage").innerText = `Terima kasih, ${name}! Pesan Anda telah terkirim.`;
+                document.getElementById("responseMessage").style.display = "block";
+                document.getElementById("contactForm").reset();
+            }, function(error) {
+                console.error("Error:", error);
+            });
         });
     </script>
 </body>
