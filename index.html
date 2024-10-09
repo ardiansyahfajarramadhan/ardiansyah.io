@@ -1,31 +1,164 @@
-// Inisialisasi EmailJS dengan USER_ID
-emailjs.init("YOUR_USER_ID"); // Ganti dengan ID pengguna dari EmailJS
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waduh-punya-gua-tuh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #007bff;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang</h1>
+    </header>
+    <main>
+        <section id="about">
+            <h2>Tentang Saya</h2>
+            <p>Nama      : ARDIAN SYAH FAJAR RAMADHAN</p>
+            <p>Usia      : TEBAK SENDIRI</p>
+            <p>Pekerjaan : Banyak hal yang bisa saya lakukan</p>
+            <p>1. Penjualan Elektronik</p>
+            <p>2. Melayani pesanan rakit komputer</p>
+            <p>3. Melayani pesanan peralatan kantor</p>
+            <p>4. Melayani jasa Service, Maintenance, Networking</p>
+            <p>Hobi      : MEMANCING, NGEGAME</p>
+            
+            <button id="showMore">Tampilkan Lebih Banyak</button>
+            <div id="moreInfo" style="display: none;">
+                <p>Visi      : Pelajari, Pahami, Praktek</p>
+                <p>Misi      : Menjadi orang yang cerdas, inovatif, dan berwawasan lingkungan.</p>
+                <p>Seorang individu yang memiliki beragam hobi dan minat yang mencerminkan kecintaan terhadap eksplorasi, teknologi, dan alam</p>
+                <p>Jika kalian ingin berbagi beberapa informasi, silahkan hubungi email di bawah ini:</p>
+                <p>email: ardiansyahfajarramadhana@gmail.com</p>
+                <p></p>
+            </div>
+        </section>
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+        <section id="contact">
+            <h2>Kontak Saya</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Nama" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <textarea id="message" placeholder="Pesan" rows="4" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+            <p id="responseMessage" style="display: none;"></p>
+            <p id="successMessage" style="display: none;">Pesan berhasil dikirim!</p>
+            <p id="errorMessage" style="display: none;">Gagal mengirim pesan, silahkan coba lagi.</p>
+            <p id="loadingMessage" style="display: none;">Loading...</p>
+            <p id="successMessageEmail" style="display: none;">Email berhasil dikirim!</p>
+            <p id="errorMessageEmail" style="display: none;">Gagal mengirim email, silahkan coba lagi.</p>
+            <p id="successMessageWhatsapp" style="display: none;">Facebook berhasil dikirim!</p>
+            <p id="errorMessageWhatsapp" style="display: none;">Gagal mengirim facebook, silahkan coba lagi.</p>
+            <p id="successMessageTelegram" style="display: none;">Twitter berhasil dikirim!</p>
+            <p id="errorMessageTelegram" style="display: none;">Gagal mengirim twitter, silahkan coba lagi.</p>
+            <p id="successMessageInstagram" style="display: none;">LinkedIn berhasil dikirim!</p>   
+            <p id="errorMessageInstagram" style="display: none;">Gagal mengirim linkedin, silahkan coba lagi.</p>
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
 
-    // Kirim email menggunakan EmailJS
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-        from_name: name,
-        from_email: email,
-        message: message,
-    })
-    .then(function(response) {
-        // Jika berhasil
-        document.getElementById("responseMessage").innerText = `Terima kasih, ${name}! Pesan Anda telah terkirim.`;
-        document.getElementById("responseMessage").style.display = "block";
-        document.getElementById("successMessage").style.display = "block";
-        document.getElementById("contactForm").reset();
-    }, function(error) {
-        // Jika gagal
-        document.getElementById("responseMessage").innerText = "Gagal mengirim pesan, silakan coba lagi.";
-        document.getElementById("responseMessage").style.display = "block";
-        document.getElementById("errorMessage").style.display = "block";
-        console.error("Error:", error);
-    });
-});
+            <div class="fade-in">
+                <h3>Media Sosial</h3>
+                <a href="https://whatsapp.com/channel/0029VarDrh1Fsn0d5kDZlR3R" target="_blank">whatsapp</a> | 
+                <a href="https://t.me/+C8grLmYPVjIwNmQ1" target="_blank">telegram</a> | 
+                <a href="https://www.instagram.com/uccuppp._/profilecard/?igsh=MTg2ZWNhd2JiM3N5bQ==" target="_blank">instagram</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; est 2024, Ardian Syah Fajar Ramadhan</p>
+    </footer>
+    <script>
+        emailjs.init("YOUR_USER_ID"); // ardiansyahfajararamadhana@gmail.com
+        document.getElementById("showMore").addEventListener("click", function() {
+            const moreInfo = document.getElementById("moreInfo");
+            if (moreInfo.style.display === "none") {
+                moreInfo.style.display = "block";
+                this.innerText = "Tampilkan Lebih Sedikit";
+            } else {
+                moreInfo.style.display = "none";
+                this.innerText = "Tampilkan Lebih Banyak";
+            }
+        });
 
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                from_name: name,
+                from_email: email,
+                message: message,
+            })
+            .then(function() {
+                document.getElementById("responseMessage").innerText = `Terima kasih, ${name}! Pesan Anda telah terkirim.`;
+                document.getElementById("responseMessage").style.display = "block";
+                document.getElementById("contactForm").reset();
+            }, function(error) {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
