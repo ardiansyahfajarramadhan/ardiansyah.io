@@ -127,7 +127,7 @@
         <p>&copy; est 2024, Ardian Syah Fajar Ramadhan</p>
     </footer>
     <script>
-        emailjs.init("YOUR_USER_ID"); // ardiansyahfajararamadhana@gmail.com
+        emailjs.init("ardiansayhfajarramadhana");
         document.getElementById("showMore").addEventListener("click", function() {
             const moreInfo = document.getElementById("moreInfo");
             if (moreInfo.style.display === "none") {
@@ -138,15 +138,15 @@
                 this.innerText = "Tampilkan Lebih Banyak";
             }
         });
-
+    
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
-
+    
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const message = document.getElementById("message").value;
 
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            emailjs.send("GmailUcup", "Template_zr7npg9", {
                 from_name: name,
                 from_email: email,
                 message: message,
@@ -154,11 +154,16 @@
             .then(function() {
                 document.getElementById("responseMessage").innerText = `Terima kasih, ${name}! Pesan Anda telah terkirim.`;
                 document.getElementById("responseMessage").style.display = "block";
+                document.getElementById("successMessage").style.display = "block";
                 document.getElementById("contactForm").reset();
+
             }, function(error) {
+                document.getElementById("responseMessage").innerText = "Gagal mengirim pesan. Silakan coba lagi.";
+                document.getElementById("errorMessage").style.display = "block";
                 console.error("Error:", error);
             });
         });
     </script>
+    
 </body>
 </html>
