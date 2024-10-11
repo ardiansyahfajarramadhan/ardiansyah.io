@@ -1,7 +1,7 @@
 # Fungsi untuk mengkonversi jumlah hari menjadi tahun, bulan, minggu, dan hari
 def konversi_hari(total_hari):
     # Langkah 1: Hitung jumlah tahun
-    tahun = total_hari / 365  # Hitung berapa tahun
+    tahun = total_hari // 365  # Hitung berapa tahun
     sisa_hari = total_hari % 365  # Hitung sisa hari setelah dihitung tahun
 
     # Langkah 2: Hitung jumlah bulan dari sisa hari
