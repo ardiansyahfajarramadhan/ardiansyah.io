@@ -1,159 +1,36 @@
-<!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natus Vincere Web Application</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            background-image: url('https://example.com/natus1.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/index.css">
 
-        header {
-            background: rgba(0, 123, 255, 0.9);
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .profile-pic {
-            display: block;
-            margin: 20px auto;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            animation: bounce 1.5s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        section {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: transform 0.2s;
-        }
-
-        section:hover {
-            transform: scale(1.02);
-        }
-    </style>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <!-- Document Title -->
+  <title>I Have Something</title>
 </head>
+
 <body>
-    <header>
-        <h1>Selamat Datang di Aplikasi Web Natus Vincere</h1>
-    </header>
-    <main>
-        <section id="about">
-            <h2>Tentang Saya</h2>
-            <p>Nama: ARDIAN SYAH FAJAR RAMADHAN</p>
-            <p>Usia: TEBAK SENDIRI</p>
-            <p>Pekerjaan: Banyak hal yang bisa saya lakukan</p>
-            <p>1. Penjualan Elektronik</p>
-            <p>2. Melayani pesanan rakit komputer</p>
-            <p>3. Melayani pesanan peralatan kantor</p>
-            <p>4. Melayani jasa Service, Maintenance, Networking</p>
-            <p>Hobi: MEMANCING, NGEGAME</p>
+  <!-- Background -->
+  <div class="night"></div>
 
-            <button id="showMore">Tampilkan Lebih Banyak</button>
-            <div id="moreInfo" style="display: none;">
-                <p>Visi: Pelajari, Pahami, Praktek</p>
-                <p>Misi: Menjadi orang yang cerdas, inovatif, dan berwawasan lingkungan.</p>
-                <p>Jika kalian ingin berbagi beberapa informasi, silahkan hubungi email di bawah ini:</p>
-                <p>Email: ardiansyahfajarramadhana@gmail.com</p>
-            </div>
-        </section>
+  <!-- Title -->
+  <h1 class="title"></h1>
 
-        <section id="contact">
-            <h2>Kontak Saya</h2>
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Nama" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <textarea id="message" placeholder="Pesan" rows="4" required></textarea>
-                <button type="submit">Kirim Pesan</button>
-            </form>
-            <p id="responseMessage" style="display: none;"></p>
-            <p id="loadingMessage"  style="display: none;">Mohon Tunggu Ssebentar</p>
-            <p id="successMessage" style="display: none;">Pesan Berhasil Dikirim!</p>
-            <p id="errorMessage" style="display: none;">Gagal mengirim pesan, silahkan coba lagi.</p>
-            <p id="socialMedia" style="display: none;">Ikuti saya di media sosial yang diberikan</p>
-            <div class="fade-in">
-                <h3>Media Sosial</h3>
-                <a href="https://whatsapp.com/channel/0029VarDrh1Fsn0d5kDZlR3R" target="_blank">WhatsApp</a>
-                <a href="https://t.me/+C8grLmYPVjIwNmQ1" target="_blank">Telegram</a>
-                <a href="https://www.instagram.com/uccuppp._/profilecard/?igsh=MTg2ZWNhd2JiM3N5bQ==" target="_blank">Instagram</a>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; Ardian Syah Fajar Ramadhan, 2024</p>
-    </footer>
+  <!-- Button -->
+  <div style="position: absolute; top: 60vh; width: 100%; display: flex; justify-content: center;">
+    <a href="flower.html" class="btn">
+      <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+        <path
+          d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
+        </path>
+      </svg>
 
-    <script>
-        emailjs.init("ardiansayhfajarramadhana");
-        document.getElementById("showMore").addEventListener("click", function() {
-            const moreInfo = document.getElementById("moreInfo");
-            if (moreInfo.style.display === "none") {
-                moreInfo.style.display = "block";
-                this.innerText = "Tampilkan Lebih Sedikit";
-            } else {
-                moreInfo.style.display = "none";
-                this.innerText = "Tampilkan Lebih Banyak";
-            }
-        });
+      <span class="text">Open</span>
+    </a>
+  </div>
 
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            // Menggunakan EmailJS untuk mengirim email
-            emailjs.send("GmailUcup", "Template_zr7npg9", {
-                from_name: name,
-                from_email: email,
-                message: message,
-            })
-            .then(function() {
-                document.getElementById("responseMessage").innerText = `Terima kasih, ${name}! Pesan Anda telah terkirim.`;
-                document.getElementById("responseMessage").style.display = "block";
-                document.getElementById("successMessage").style.display = "block";
-                document.getElementById("contactForm").reset();
-            }, function(error)
-            {
-                document.getElementById("responseMessage").innerText = "Gagal mengirim pesan. Silakan coba lagi.";
-                document.getElementById("errorMessage").style.display = "block";
-                console.error("Error:", error);
-            });
-        });
-    </script>
-
+  <script src="js/index.js"></script>
 </body>
+
 </html>
